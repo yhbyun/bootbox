@@ -92,7 +92,7 @@
     footer:
     '<div class="modal-footer"></div>',
     closeButton:
-    '<button type="button" class="bootbox-close-button close" aria-hidden="true">&times;</button>',
+    '<button type="button" class="bootbox-close-button close" aria-hidden="true"></button>',
     form:
     '<form class="bootbox-form"></form>',
     button:
@@ -278,7 +278,7 @@
 
     body.find('.bootbox-body').html(options.message);
 
-    // Only attempt to create buttons if at least one has 
+    // Only attempt to create buttons if at least one has
     // been defined in the options object
     if (getKeyLength(options.buttons) > 0) {
       each(buttons, function (key, b) {
@@ -513,7 +513,7 @@
 
 
   // Helper function to simulate the native alert() behavior. **NOTE**: This is non-blocking, so any
-  // code that must happen after the alert is dismissed should be placed within the callback function 
+  // code that must happen after the alert is dismissed should be placed within the callback function
   // for this alert.
   exports.alert = function () {
     var options;
@@ -541,7 +541,7 @@
 
 
   // Helper function to simulate the native confirm() behavior. **NOTE**: This is non-blocking, so any
-  // code that must happen after the confirm is dismissed should be placed within the callback function 
+  // code that must happen after the confirm is dismissed should be placed within the callback function
   // for this confirm.
   exports.confirm = function () {
     var options;
@@ -568,7 +568,7 @@
 
 
   // Helper function to simulate the native prompt() behavior. **NOTE**: This is non-blocking, so any
-  // code that must happen after the prompt is dismissed should be placed within the callback function 
+  // code that must happen after the prompt is dismissed should be placed within the callback function
   // for this prompt.
   exports.prompt = function () {
     var options;
@@ -601,7 +601,7 @@
     // it, but we need to make sure we respect a preference not to show it
     shouldShow = (options.show === undefined) ? defaults.show : options.show;
 
-    // This is required prior to calling the dialog builder below - we need to 
+    // This is required prior to calling the dialog builder below - we need to
     // add an event handler just before the prompt is shown
     options.show = false;
 
@@ -610,7 +610,7 @@
       return options.callback.call(this, null);
     };
 
-    // Prompt submitted - extract the prompt value. This requires a bit of work, 
+    // Prompt submitted - extract the prompt value. This requires a bit of work,
     // given the different input types available.
     options.buttons.confirm.callback = function () {
       var value;
@@ -708,7 +708,7 @@
         }
 
         // These input types have extra attributes which affect their input validation.
-        // Warning: For most browsers, date inputs are buggy in their implementation of 'step', so 
+        // Warning: For most browsers, date inputs are buggy in their implementation of 'step', so
         // this attribute will have no effect. Therefore, we don't set the attribute for date inputs.
         // @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date#Setting_maximum_and_minimum_dates
         if (options.inputType !== 'date') {
@@ -1002,8 +1002,8 @@
   }
 
 
-  //  Checks each button object to see if key is valid. 
-  //  This function will only be called by the alert, confirm, and prompt helpers. 
+  //  Checks each button object to see if key is valid.
+  //  This function will only be called by the alert, confirm, and prompt helpers.
   function validateButtons(options, buttons) {
     var allowedButtons = {};
     each(buttons, function (key, value) {
@@ -1042,7 +1042,7 @@
 
 
 
-  //  Get localized text from a locale. Defaults to 'en' locale if no locale 
+  //  Get localized text from a locale. Defaults to 'en' locale if no locale
   //  provided or a non-registered locale is requested
   function getText(key, locale) {
     var labels = locales[locale];
@@ -1075,14 +1075,14 @@
       options.backdrop = (options.backdrop === false || options.backdrop === 0) ? false : 'static';
     } else {
       options.backdrop = typeof options.backdrop === 'string' && options.backdrop.toLowerCase() === 'static' ? 'static' : true;
-    } 
+    }
 
     // no buttons is still a valid dialog but it's cleaner to always have
     // a buttons object to iterate over, even if it's empty
     if (!options.buttons) {
       options.buttons = {};
     }
-    
+
     buttons = options.buttons;
 
     total = getKeyLength(buttons);
@@ -1151,7 +1151,7 @@
 
   function destroyModal(e) {
     // ensure we don't accidentally intercept hidden events triggered
-    // by children of the current dialog. We shouldn't need to handle this anymore, 
+    // by children of the current dialog. We shouldn't need to handle this anymore,
     // now that Bootstrap namespaces its events, but still worth doing.
     if (e.target === e.data.dialog[0]) {
       e.data.dialog.remove();
