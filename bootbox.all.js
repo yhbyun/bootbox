@@ -576,9 +576,9 @@
       innerDialog.addClass('modal-dialog-centered');
 
       // Requires Bootstrap 4.0.0-beta.3 or higher
-      if (options.fullBootstrapVersion < '4.0.0') {
-        console.warn('"centerVertical" requires Bootstrap 4.0.0-beta.3 or higher. You appear to be using ' + options.fullBootstrapVersion + '. Please upgrade to use this option.');
-      }
+      // if (options.fullBootstrapVersion < '4.0.0') {
+      //   console.warn('"centerVertical" requires Bootstrap 4.0.0-beta.3 or higher. You appear to be using ' + options.fullBootstrapVersion + '. Please upgrade to use this option.');
+      // }
     }
 
     // Bootstrap event listeners; these handle extra
